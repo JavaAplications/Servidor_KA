@@ -24,7 +24,7 @@ public  Connection Conectar(String nombre){
 }
 
 public void InsertarBufferKA(String[] buffer,int LongitudBuffer){
-	vaciarRadiosOnlines();
+
 	int IdRadio = 0;
 	int i=0;
 	int radiobases=0;
@@ -165,7 +165,7 @@ public String ConsultarNombre(int IdRadiobase)
 public void  InsertarRadiosOnline(){
 	
    con=Conectar("InsertarRadiosOnline");
-   vaciarRadiosOnlines();
+
    String ComandoSQL="(?,?)";
    String SQLFINAL=null;
     Statement st;
@@ -218,27 +218,6 @@ public void  InsertarRadiosOnline(){
 	
 }
 
-public boolean vaciarRadiosOnlines(){
-	
-	con=Conectar("vaciarRadiosOnlines");
-	String comando="TRUNCATE `onlineradiobases`";
-	 
-	 PreparedStatement pst;
-	 
-		try {
-			//st=con.createStatement();
-			pst = con.prepareStatement(comando);
-			pst.execute();
-		//	con.close();
-			
-		}catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			return false;
-	              }
-		//con.close();
-		return true;
-}
 
 public void Desconectar(){
 	
