@@ -96,7 +96,7 @@ public void InsertarKeepAlive(int IdRadio){
 			pst = con.prepareStatement("INSERT INTO keepalive (IdRadios) VALUES (?)");
 		
 			pst.setInt(1,IdRadio);
-			
+		
 			pst.execute();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -104,6 +104,33 @@ public void InsertarKeepAlive(int IdRadio){
 		}
 
 }
+
+
+
+public void InsertarStatus(int IdRadio,String NivelBat,String VoltBat, String StatusBat,String TempBat,String SaludBat,String Gps){
+	
+	con=Conectar("InsertarStatus");
+	
+		PreparedStatement pst;
+		try {
+			pst = con.prepareStatement("INSERT INTO status (IdRadios,NivelBat,VoltBat,StatusBat,TempBat,SaludBat, Gps) VALUES (?,?,?,?,?,?,?)");
+		
+			pst.setInt(1,IdRadio);
+			pst.setString(2, NivelBat);
+			pst.setString(3, VoltBat);
+			pst.setString(4, StatusBat);
+			pst.setString(5, TempBat);
+			pst.setString(6, SaludBat);
+			pst.setString(7, Gps);
+		
+			pst.execute();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+}
+
 
 public void InsertarRadiobases(String NomRadio,String TelRadio,String LatRadio,String LongRadio,
 		String LocRadio,String ProvRadio,String ContacRadio){
