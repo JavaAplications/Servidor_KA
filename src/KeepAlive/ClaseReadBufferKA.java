@@ -66,6 +66,7 @@ int Alarma2=1;// Keep alive
 	if (Alarma==Alarma2){	
 		BufferDeDatos.bufferDatosIndividual=arr[1];
 		
+		//agrega el status en cada keep alive.. hay qu
 		con.InsertarStatus(Radiobase, Level, Voltage, Status,Temperature, Health, Geoloc);
 	}   else{System.out.println("Keep Alive NO escrito");}
 	
